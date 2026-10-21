@@ -430,11 +430,14 @@ class StreamHTTPTests(unittest.TestCase):
 class PiConfigTests(unittest.TestCase):
     def test_documented_provider_limits_and_thinking_overrides(self):
         text = (r.ROOT / "docs/pi.md").read_text()
-        config = json.loads(text.split("```json\n", 1)[1].split("```", 1)[0])
+        config = json.loads((r.ROOT / "examples/pi-models.json").read_text())
+        self.assertIn("../examples/pi-models.json", text)
+        self.assertEqual(config, json.loads((r.ROOT / "examples/pi-models-moe.json").read_text()))
+        self.assertEqual(set(config["providers"]), {"llamacpp-qwen38"})
         provider = config["providers"]["llamacpp-qwen38"]
         self.assertEqual(provider["baseUrl"], f"http://127.0.0.1:{r.DEFAULT_PORT}/v1")
         self.assertEqual(provider["api"], "openai-completions")
-        model, = provider["models"]
+        model = next(model for model in provider["models"] if model["id"] == r.ALIAS)
         self.assertEqual(model["id"], r.ALIAS)
         self.assertEqual(model["contextWindow"], r.DEFAULT_CONTEXT)
         self.assertEqual(model["maxTokens"], 4096)
@@ -451,6 +454,30 @@ class PiConfigTests(unittest.TestCase):
         off = {**defaults, **model["samplingParamsByThinkingLevel"]["off"]}
         self.assertEqual(off["chat_template_kwargs"], {"enable_thinking": False, "preserve_thinking": True})
         self.assertEqual((off["temperature"], off["top_p"], off["presence_penalty"]), (.7, .8, 1.5))
+
+
+    def test_complete_provider_has_family_specific_parameters(self):
+        config = json.loads((r.ROOT / "examples/pi-models.json").read_text())
+        models = config["providers"]["llamacpp-qwen38"]["models"]
+        self.assertEqual(len(models), 9)
+        self.assertEqual(len({model["id"] for model in models}), 9)
+        for model in models:
+            self.assertEqual(model["contextWindow"], 262144)
+            self.assertEqual(model["maxTokens"], 4096)
+            self.assertEqual(model["samplingParams"]["reasoning_budget_tokens"], 1024)
+            if model["id"] == r.ALIAS:
+                continue
+            defaults = model["samplingParams"]
+            compat = model["compat"]
+            self.assertFalse(compat["supportsReasoningEffort"])
+            self.assertEqual(compat["thinkingFormat"], "chat-template")
+            self.assertEqual(compat["chatTemplateKwargs"]["enable_thinking"],
+                             {"$var": "thinking.enabled"})
+            expected = ((0.6, 0.95, 20) if model["id"].startswith("qwen36-") else
+                        (1, 0.95, 64) if model["id"].startswith("gemma4-") else (1, 0.95, 0))
+            self.assertEqual((defaults["temperature"], defaults["top_p"], defaults["top_k"]), expected)
+            self.assertEqual(model["input"], ["text"] if model["id"].startswith("nemotron")
+                             else ["text", "image"])
 
 
 class GGUFTests(unittest.TestCase):

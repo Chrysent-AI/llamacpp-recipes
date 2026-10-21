@@ -9,7 +9,10 @@
           "id": "qwen3.8-27b",
           "name": "Qwen3.8 27B local Metal",
           "reasoning": true,
-          "input": ["text", "image"],
+          "input": [
+            "text",
+            "image"
+          ],
           "contextWindow": 262144,
           "maxTokens": 4096,
           "thinkingLevelMap": {
@@ -47,6 +50,282 @@
                 "preserve_thinking": true
               }
             }
+          }
+        },
+        {
+          "id": "qwen36-q2-k-xl-d4",
+          "name": "qwen36-q2-k-xl-d4 local Metal",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              },
+              "preserve_thinking": true
+            }
+          },
+          "samplingParams": {
+            "temperature": 0.6,
+            "top_p": 0.95,
+            "top_k": 20,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
+          },
+          "samplingParamsByThinkingLevel": {
+            "off": {
+              "temperature": 0.7,
+              "top_p": 0.8,
+              "presence_penalty": 1.5
+            }
+          }
+        },
+        {
+          "id": "qwen36-q3-k-xl-d4",
+          "name": "qwen36-q3-k-xl-d4 local Metal",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              },
+              "preserve_thinking": true
+            }
+          },
+          "samplingParams": {
+            "temperature": 0.6,
+            "top_p": 0.95,
+            "top_k": 20,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
+          },
+          "samplingParamsByThinkingLevel": {
+            "off": {
+              "temperature": 0.7,
+              "top_p": 0.8,
+              "presence_penalty": 1.5
+            }
+          }
+        },
+        {
+          "id": "qwen36-iq4-xs-d4",
+          "name": "qwen36-iq4-xs-d4 local Metal",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              },
+              "preserve_thinking": true
+            }
+          },
+          "samplingParams": {
+            "temperature": 0.6,
+            "top_p": 0.95,
+            "top_k": 20,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
+          },
+          "samplingParamsByThinkingLevel": {
+            "off": {
+              "temperature": 0.7,
+              "top_p": 0.8,
+              "presence_penalty": 1.5
+            }
+          }
+        },
+        {
+          "id": "gemma4-q4-k-xl-d2",
+          "name": "gemma4-q4-k-xl-d2 local Metal",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              }
+            }
+          },
+          "samplingParams": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 64,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
+          }
+        },
+        {
+          "id": "nemotron35-iq2-m-d0",
+          "name": "nemotron35-iq2-m-d0 local Metal",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              }
+            }
+          },
+          "samplingParams": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 0,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
+          }
+        },
+        {
+          "id": "nemotron35-iq2-m-d4",
+          "name": "nemotron35-iq2-m-d4 local Metal",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              }
+            }
+          },
+          "samplingParams": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 0,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
+          }
+        },
+        {
+          "id": "nemotron35-q3-k-xl-d2",
+          "name": "nemotron35-q3-k-xl-d2 local Metal",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              }
+            }
+          },
+          "samplingParams": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 0,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
+          }
+        },
+        {
+          "id": "nemotron35-q4-k-m-d0",
+          "name": "nemotron35-q4-k-m-d0 local Metal",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 4096,
+          "compat": {
+            "supportsReasoningEffort": false,
+            "supportsDeveloperRole": false,
+            "supportsStore": false,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "chat-template",
+            "chatTemplateKwargs": {
+              "enable_thinking": {
+                "$var": "thinking.enabled"
+              }
+            }
+          },
+          "samplingParams": {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 0,
+            "min_p": 0,
+            "presence_penalty": 0,
+            "repeat_penalty": 1,
+            "reasoning_budget_tokens": 1024
           }
         }
       ]

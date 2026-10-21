@@ -67,7 +67,7 @@ Use `make serve ARGS="--config local/other.ini"` for an explicit alternate confi
 [`example.ini`](example.ini) contains **nine presets** with generic repository-relative paths:
 the Qwen3.8 control, three Qwen3.6 quants, Gemma 4 QAT, and four Nemotron quant/mode combinations
 (including IQ2 with MTP off and MTP4). Their IDs match
-[`examples/pi-models-moe.json`](examples/pi-models-moe.json).
+[`examples/pi-models.json`](examples/pi-models.json).
 Keep the shared defaults and copy only model sections whose weights and required sidecars are
 available; adjust paths in your private copy. The example does not install models. Merge only the
 needed Pi entries into your own configuration, preserving unrelated entries; nothing here edits it
@@ -85,9 +85,20 @@ no RAM prompt-cache pool, no context shifting and no automatic fit/shrink. Low r
 Other families have their own sampling and capabilities; do not copy Qwen's thinking knobs
 blindly. Put model-specific flags in INI: native router CLI flags override all presets.
 
-One Pi provider/port can offer several model IDs corresponding to the INI section names.
-See [Pi connection](docs/pi.md) for the current control example and per-model configuration.
-No user/global settings or credentials are changed by this repository.
+## Pi: one provider, model-specific settings
+
+[`examples/pi-models.json`](examples/pi-models.json) is the complete copyable provider block:
+all nine model/mode entries use the same local endpoint, with their own sampling, thinking and
+image settings. Merge only the entries you need into your existing Pi configuration; do not
+replace unrelated providers. The older `pi-models-moe.json` filename remains an identical copy.
+
+Start with `qwen36-q3-k-xl-d4` for the measured coding/vision balance,
+`gemma4-q4-k-xl-d2` for the Gemma alternative, or `nemotron35-iq2-m-d0` for the fastest measured
+longer text-only workload. These are tested starting points, not universal optima. `d0` means
+MTP off, not thinking off. Pi request parameters override server sampling defaults, while model
+loading, KV allocation and MTP remain INI settings. See [the model-selection and parameter guide](docs/pi.md)
+for all entries, recommended values and capability differences. Nothing in this repository
+changes user/global settings or credentials automatically.
 
 ## Validation and limits
 

@@ -1,110 +1,103 @@
 # Connect Pi to the local endpoint
 
-Run `make serve` and leave that terminal open. It starts the **native llama.cpp router** from
-ignored `local/models.ini`, at the same provider URL/port as the earlier single-model control.
-Nothing in this repository automatically edits Pi settings or credentials. Requests select
-models by INI section ID; do not run a second loader/server alongside this owned router.
+## One provider, all measured models
 
-One provider can contain multiple entries in its `models` array, each with its own ID, context,
-output allowance, verified input capabilities and sampling parameters. Add an entry only after
-its local preset/files and capabilities are validated. Keep the provider name and base URL;
-do not duplicate the provider for each quantization. [`example.ini`](../example.ini) shows native
-preset names and candidate-specific server sampling, while the JSON below deliberately remains
-the verified Qwen3.8 control only. Do not copy Qwen's thinking map or image capability onto other
-families without checking them. Native single-resident switching unloads the previous idle model
-and loses its KV cache; selecting it again requires reload and prompt evaluation.
+[`examples/pi-models.json`](../examples/pi-models.json) is the complete, ready-to-copy JSON:
+**one `llamacpp-qwen38` provider, one port, nine model/mode entries**, each with its own
+sampling, thinking controls and input capabilities. It includes the dense control and all
+validated MoE choices. [`examples/pi-models-moe.json`](../examples/pi-models-moe.json) is an
+identical compatibility copy for existing links; use `pi-models.json` as the main example.
+Neither file contains anyone's personal configuration or credentials.
 
-A ready-to-copy control configuration is available at [`examples/pi-models.json`](../examples/pi-models.json).
-The separately tested MoE candidate fragment is [`examples/pi-models-moe.json`](../examples/pi-models-moe.json);
-read the [comparison report](benchmarks/moe-256k.md) before selecting quants/MTP modes. It retains this
-control and uses verified binary thinking-template switches for the new families, not this control's
-effort mapping. Both examples contain only
-public local-provider settings, not anyone's personal Pi configuration.
-For a new configuration, use it as a starting point; if `models.json` already exists, merge only
-its `llamacpp-qwen38` provider into the existing `providers` object—do not overwrite the file.
-Pi's default configuration path is `~/.pi/agent/models.json`.
+1. Prepare your private `local/models.ini` from [`example.ini`](../example.ini), retaining only
+   sections whose language weights and required sidecars are available. The INI section names
+   must match Pi model IDs. Adjust paths only in your private copy.
+2. Run `make serve` and leave that terminal open. It starts the native llama.cpp router at
+   `http://127.0.0.1:39483/v1`, with at most one model resident. No model-path environment variable
+   is required. Do not run another loader/server alongside it.
+3. Pi's default configuration path is `~/.pi/agent/models.json`. For a new file, the complete
+   example is a starting point. For an existing file, merge its provider or individual model
+   entries by ID, preserving unrelated providers and settings. **Do not overwrite your file.**
+4. Open `/model` to reload and select `llamacpp-qwen38/<model-id>`, then select `/thinking low`
+   to enable bounded thinking. Saving a default model or thinking level is a separate choice.
 
-Adjust `baseUrl` to your server's address and port, `models[0].id` to its served alias, and
-`contextWindow` to the configured server capacity. `maxTokens` is the total output allowance;
-`reasoning_budget_tokens` is the separate per-thinking-block budget. Remove `"image"` from
-`input` when serving without a matching projector. These settings are for Qwen3.8-27B; other
-Unsloth model families may need different templates, sampling and thinking controls.
+The repository does not automatically edit Pi settings. The example's `apiKey: "local"` is a
+non-secret placeholder that makes the provider selectable; it does not authenticate the server.
+Keep the listener on loopback. See [setup and security limits](setup.md).
 
-Merge the following provider into the existing agent-directory `models.json`, preserving all
-other providers. Open `/model` to reload and select `llamacpp-qwen38/qwen3.8-27b`, then select
-`/thinking low`. Saving a default model or thinking level is a separate user choice.
+## Which entry to start with
 
-```json
-{
-  "providers": {
-    "llamacpp-qwen38": {
-      "baseUrl": "http://127.0.0.1:39483/v1",
-      "api": "openai-completions",
-      "apiKey": "local",
-      "models": [{
-        "id": "qwen3.8-27b",
-        "name": "Qwen3.8 27B local Metal",
-        "reasoning": true,
-        "input": ["text", "image"],
-        "contextWindow": 262144,
-        "maxTokens": 4096,
-        "thinkingLevelMap": {
-          "off": "none", "minimal": "low", "low": "low",
-          "medium": "medium", "high": "xhigh", "xhigh": "xhigh"
-        },
-        "compat": {
-          "supportsReasoningEffort": true,
-          "maxTokensField": "max_tokens"
-        },
-        "samplingParams": {
-          "temperature": 1.0, "top_p": 0.95, "top_k": 20,
-          "min_p": 0.0, "presence_penalty": 0.0, "repeat_penalty": 1.0,
-          "reasoning_budget_tokens": 1024,
-          "chat_template_kwargs": {"enable_thinking": true, "preserve_thinking": true}
-        },
-        "samplingParamsByThinkingLevel": {
-          "off": {
-            "temperature": 0.7, "top_p": 0.8, "presence_penalty": 1.5,
-            "chat_template_kwargs": {"enable_thinking": false, "preserve_thinking": true}
-          }
-        }
-      }]
-    }
-  }
-}
-```
+These are **measured starting points, not universally optimal settings**. The table gives
+accepted-output decode speed for the synthetic short and approximately 20K prompts, not total
+request latency or general coding quality. See the [full comparison](benchmarks/moe-256k.md)
+for methods, model-loading costs, cold/warm results and all quantizations.
 
-The dummy key is non-secret; the loopback server does not authenticate clients. The alias matches
-the server. Image input is verified with the matching projector, not with text-only serving: if
-you remove `mmproj` and set `no-mmproj = true` in its preset, remove `"image"` from that model's input list.
-See [setup](setup.md) for projector selection and provenance.
+| Model ID | Method | Short / ~20K tok/s | Intended starting use |
+|---|---|---:|---|
+| `qwen36-q3-k-xl-d4` | Embedded MTP, draft 4 | 58.3 / 22.7 | Coding with image support; longer-input behavior measured |
+| `qwen36-iq4-xs-d4` | Embedded MTP, draft 4 | 57.1 / not measured | Higher-precision Qwen alternative; no long-context quality claim |
+| `qwen36-q2-k-xl-d4` | Embedded MTP, draft 4 | 50.5 / not measured | Lower-memory Qwen alternative; evaluate task quality |
+| `gemma4-q4-k-xl-d2` | Separate MTP head, draft 2 | 53.9 / 25.1 | Vision-capable alternative; slower uncached 20K prefill |
+| `nemotron35-iq2-m-d0` | MTP off | 39.7 / 32.4 | Fastest measured longer text-only workload |
+| `nemotron35-iq2-m-d4` | Embedded MTP, draft 4 | 47.6 / 23.4 | Short-input alternative; slower than off at 20K |
+| `nemotron35-q3-k-xl-d2` | Embedded MTP, draft 2 | 45.8 / not measured | Higher-precision Nemotron comparison |
+| `nemotron35-q4-k-m-d0` | MTP off | 35.8 / not measured | Q4 alternative; MTP2/4 failed Metal allocation |
+| `qwen3.8-27b` | Dense control, MTP draft 4 | 14.5 / not measured | Original baseline, not the faster MoE path |
 
-## Reasoning and output limits
+`d0` means **MTP off**, not thinking off. MTP is configured in the native INI, not by Pi's
+thinking selector. Qwen3.6 and Nemotron use embedded MTP heads; Gemma needs its separate
+matching drafter. Qwen and Gemma image entries also need their matching projector. Remove
+`"image"` from a model's `input` list if you disable its projector. Nemotron is text-only here.
 
-The embedded local GGUF template accepts low/medium/xhigh effort (and aliases high to xhigh).
-Effort is an instruction, **not a numeric budget**. Pi minimal/low map to low and high/xhigh to
-xhigh; these are not six distinct native capabilities. Server low effort is a fallback and the
-request's `reasoning_effort` overrides it. No forced server `enable_thinking` kwarg contradicts
-Pi's off setting. The off-level kwargs above explicitly replace the thinking-enabled kwargs:
-Pi merges sampling shallowly, so omit neither the false flag nor the preserved-history choice.
+## Parameters and precedence
 
-The 1024 budget is approximate and applies per thinking block, not an immutable aggregate
-quota. The 4096 total output allowance includes thinking plus answer; it does not guarantee
-an answer if exhausted. Server `--n-predict 4096` is a client-overridable fallback, not a hard
-limit against arbitrary clients. Do not put competing output-limit fields in `samplingParams`.
-`--reasoning-format deepseek` streams thoughts separately as `reasoning_content`.
+| Family | Thinking/coding temperature | top-p | top-k | Thinking interface |
+|---|---:|---:|---:|---|
+| Qwen3.8 dense control | 1.0 | 0.95 | 20 | Native low/medium/xhigh effort mapping |
+| Qwen3.6 MoE | 0.6 | 0.95 | 20 | Binary chat-template thinking switch |
+| Gemma 4 QAT MoE | 1.0 | 0.95 | 64 | Binary chat-template thinking switch |
+| Nemotron 3.5 MoE | 1.0 | 0.95 | 0, disabled | Binary chat-template thinking switch |
 
-Sampling follows the distributor's thinking and nonthinking recommendations, with its
-`repetition_penalty` translated to the runner's `repeat_penalty`:
-https://huggingface.co/unsloth/Qwen3.8-27B-GGUF/blob/4ca720788d1e01f1bff70c033e0d0028fd02e502/README.md
+Thinking defaults additionally use min-p 0, presence penalty 0 and repeat penalty 1. The
+model cards' `repetition_penalty` is expressed as llama.cpp's `repeat_penalty`. Qwen entries
+have their separately documented nonthinking sampling override. Public source-card links and
+exact artifact revisions are in the comparison report; settings are not interchangeable across
+all Unsloth model families.
 
-This uses installed Pi 1.0.3 `docs/models.md`, `docs/configuration.md` and the installed
-OpenAI-completions/schema implementation; no provider extension or model-gating manifest is
-needed. A real direct API check passed streamed thinking + answer, constrained tool/result,
-thinking-off, and a synthetic image at IQ3/MTP4/256K. This is not a live Pi UI session or broad
-vision/tool-selection quality test. See [validation evidence](validation.md).
+The native INI controls model/projector/drafter loading, allocated context, KV precision and
+server defaults. Pi's per-model `samplingParams` are sent with requests and override server
+sampling defaults. Changing temperature only in INI will not change a Pi request that supplies
+its own temperature. Keep `baseUrl`, model IDs, capabilities and `contextWindow` aligned with
+the server. Do not put model-specific CLI flags on the shared router launch: they override INI.
 
-No cache lifetime or Pi cache-warming eligibility is declared. Live-prefix reuse was observed
-on a short tool continuation; this does not promise full-history or 20K reuse. Start with a
-non-sensitive conversation: model tool calls are untrusted executable instructions. Review
-Pi permissions and project trust before letting this local model operate on important files.
+All example entries declare **262144 context**, **4096 total output tokens** and a
+**1024-token per-thinking-block budget**. Context is not output allowance. The total output
+includes thoughts plus the answer and does not guarantee a complete answer if exhausted.
+The thinking budget is not an immutable aggregate quota; server `--n-predict` is likewise a
+client-overridable fallback. Avoid competing `max_tokens`, `max_completion_tokens` or
+`n_predict` keys in `samplingParams`.
+
+For Qwen3.8, Pi minimal/low map to low, medium to medium, and high/xhigh to xhigh; effort is an
+instruction, not a token budget. The three new families instead use
+`thinkingFormat: "chat-template"` and `thinking.enabled`: every non-off Pi level enables the
+same bounded thinking behavior. They do not claim distinct native low/medium/high effort modes.
+Use `/thinking off` to disable thinking. Keep the example's family-specific overrides intact:
+Pi merges sampling shallowly, and nested template kwargs are replaced rather than deep-merged.
+`--reasoning-format deepseek` keeps streamed thoughts separate in `reasoning_content`.
+
+## Cache, verification and publication
+
+The native router unloads an idle previous model when another is requested. **Unloading loses
+its KV cache**; switching back requires loading and prompt evaluation again. Prefix reuse
+requires matching token history. No cache lifetime or Pi cache-warming eligibility is declared.
+Configured 256K capacity is not proof of fully occupied 256K performance: the comparison reached
+20624 occupied tokens. Start with a non-sensitive task before using important files.
+
+These examples were checked against Pi 1.0.3 and the pinned llama.cpp build. The measured Pi
+coding trials were isolated read/write/edit-only sessions, not full interactive orchestration
+or a filesystem sandbox. See [validation](validation.md) and [benchmark limits](benchmarks/moe-256k.md).
+
+Share the public examples, not your full personal `models.json`, authentication files or raw
+session logs. `local/`, `.runtime/` and `results/` remain ignored. Review staged files before
+publishing; do not add personal home paths, named volumes, host/share names or private addresses.
+Generic relative paths, localhost and public model names/revisions are intentional.
