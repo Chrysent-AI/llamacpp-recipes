@@ -1,0 +1,6 @@
+.runtime/
+results/
+__pycache__/
+*.pyc
+.DS_Store
+local/

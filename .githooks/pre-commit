@@ -1,0 +1,30 @@
+#!/bin/sh
+# Scan staged changes; no Python pre-commit framework is required.
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "gitleaks: not found — skipping pre-commit secret/PII scan" >&2
+    exit 0
+fi
+root=$(git rev-parse --show-toplevel 2>/dev/null) || exit 1
+cfg="$root/.gitleaks.toml"
+if [ -f "$cfg" ]; then
+    set -- -c "$cfg"
+else
+    set --
+fi
+out=$(gitleaks git --pre-commit --staged --redact --verbose "$@" 2>&1)
+status=$?
+if [ "$status" -eq 0 ]; then
+    exit 0
+fi
+case $out in
+    *"unknown flag"*|*"unknown command"*)
+        # Older gitleaks: fall back to the deprecated protect subcommand.
+        out=$(gitleaks protect --staged --redact --verbose "$@" 2>&1)
+        status=$?
+        ;;
+esac
+if [ "$status" -ne 0 ]; then
+    printf '%s\n' "$out" >&2
+    echo "pre-commit: gitleaks flagged staged content — remove the secret/PII, add an inline 'gitleaks:allow' comment on the offending line, or unstage the change." >&2
+fi
+exit "$status"

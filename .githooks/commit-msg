@@ -1,0 +1,25 @@
+#!/bin/sh
+# Scan the commit message, which staged-content scanning does not cover.
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "gitleaks: not found — skipping commit-message scan" >&2
+    exit 0
+fi
+if [ "$#" -lt 1 ] || [ ! -f "$1" ]; then
+    echo "commit-msg: no commit message file argument" >&2
+    exit 1
+fi
+msgfile=$1
+root=$(git rev-parse --show-toplevel 2>/dev/null) || exit 1
+cfg="$root/.gitleaks.toml"
+if [ -f "$cfg" ]; then
+    set -- -c "$cfg"
+else
+    set --
+fi
+out=$(gitleaks stdin --redact --verbose "$@" <"$msgfile" 2>&1)
+status=$?
+if [ "$status" -ne 0 ]; then
+    printf '%s\n' "$out" >&2
+    echo "commit-msg: commit message contains a secret or personal identifier — rewrite the message (see the finding above)." >&2
+fi
+exit "$status"

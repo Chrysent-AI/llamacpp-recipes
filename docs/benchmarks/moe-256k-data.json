@@ -1,0 +1,1077 @@
+{
+  "hardware": "Apple M2 Pro, 32 GiB unified memory",
+  "date": "2026-10-20",
+  "source_commit": "1ba568c5ad5c6c718984bd2bf4e7c71485b706f9",
+  "context_capacity": 262144,
+  "cache_types": "q8_0 K and V",
+  "assets": [
+    {
+      "repo": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
+      "revision": "5bc3e238d916f48a861bac2f8a1990a0e9b7e98d",
+      "file": "Qwen3.6-35B-A3B-UD-Q2_K_XL.gguf",
+      "bytes": 12574128416,
+      "sha256": "ed7cda7e38985b4fcff76475865135039641d2bfbac3c169df15ca770f37fb0c",
+      "status": "verified",
+      "elapsed_seconds": 119.739014333
+    },
+    {
+      "repo": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
+      "revision": "5bc3e238d916f48a861bac2f8a1990a0e9b7e98d",
+      "file": "Qwen3.6-35B-A3B-UD-Q3_K_XL.gguf",
+      "bytes": 17227569440,
+      "sha256": "3fba9ab57290b34726837521335bf9268397174f3dd662880e2d0c5264d17b81",
+      "status": "verified",
+      "elapsed_seconds": 162.88016699999997
+    },
+    {
+      "repo": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
+      "revision": "5bc3e238d916f48a861bac2f8a1990a0e9b7e98d",
+      "file": "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf",
+      "bytes": 18209036576,
+      "sha256": "df27a780435b7b45c2597536112ea3cb091f8544c3d0c3318d9f4258b31f7adf",
+      "status": "verified",
+      "elapsed_seconds": 172.285835625
+    },
+    {
+      "repo": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
+      "revision": "5bc3e238d916f48a861bac2f8a1990a0e9b7e98d",
+      "file": "mmproj-F16.gguf",
+      "bytes": 899283584,
+      "sha256": "71f3cbc1f7cc0f30d09d41cfa924c0060827ebc33bf15ace7e86661e856f0160",
+      "status": "verified",
+      "elapsed_seconds": 11.972542417
+    },
+    {
+      "repo": "unsloth/gemma-4-26B-A4B-it-qat-GGUF",
+      "revision": "7b92b5b28818151e8669af2e45e88d6086f490dd",
+      "file": "gemma-4-26B-A4B-it-qat-UD-Q4_K_XL.gguf",
+      "bytes": 14249047104,
+      "sha256": "a7c5bc715f5ff8e99a3e8901ce7d2b42b402c669bf24f7c5250747633d0f5891",
+      "status": "verified",
+      "elapsed_seconds": 141.45302762499995
+    },
+    {
+      "repo": "unsloth/gemma-4-26B-A4B-it-qat-GGUF",
+      "revision": "7b92b5b28818151e8669af2e45e88d6086f490dd",
+      "file": "mtp-gemma-4-26B-A4B-it.gguf",
+      "bytes": 251939328,
+      "sha256": "7272d97595f0d4c74bd7b623492b7dbdaafd8b7c72f329a8270ba4eca68f768a",
+      "status": "verified",
+      "elapsed_seconds": 5.5286294999999654
+    },
+    {
+      "repo": "unsloth/gemma-4-26B-A4B-it-qat-GGUF",
+      "revision": "7b92b5b28818151e8669af2e45e88d6086f490dd",
+      "file": "mmproj-F16.gguf",
+      "bytes": 1193058784,
+      "sha256": "d00f211a7d4f7fb19bd9b75d8e9342eccffb5920b08fd9562167560fdfcc5dd1",
+      "status": "verified",
+      "elapsed_seconds": 16.48280720799994
+    },
+    {
+      "repo": "unsloth/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+      "revision": "f2d3fe3694501008786e81e5f20360cbf715496a",
+      "file": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-UD-IQ2_M.gguf",
+      "bytes": 19432070208,
+      "sha256": "55fee4ce435f6b7d40df4247d85de01b10b3cbf1f8ba3bb11174699657de80e1",
+      "status": "verified",
+      "elapsed_seconds": 184.84542354200005
+    },
+    {
+      "repo": "unsloth/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+      "revision": "f2d3fe3694501008786e81e5f20360cbf715496a",
+      "file": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-UD-Q3_K_XL.gguf",
+      "bytes": 21235202112,
+      "sha256": "b7b30d1f27e34be3757808840bb2daf9e465e99a9bbdc50d649a31ade219bc82",
+      "status": "verified",
+      "elapsed_seconds": 202.14500875
+    },
+    {
+      "repo": "unsloth/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-GGUF",
+      "revision": "f2d3fe3694501008786e81e5f20360cbf715496a",
+      "file": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B-UD-Q4_K_M.gguf",
+      "bytes": 25266255936,
+      "sha256": "edcb5d4650796ed2fb412498de6f83b585862312c747ddb74f0ea04b22206181",
+      "status": "verified",
+      "elapsed_seconds": 250.90287845799992
+    }
+  ],
+  "short": [
+    {
+      "model": "gemma4-q4-k-xl-d0",
+      "requests": 4,
+      "rate_mean": 45.6171,
+      "rate_range": [
+        45.06374568434798,
+        45.81306465954941
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        49
+      ],
+      "cold_ttft": 0.2307,
+      "warm_ttft": 0.0697,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        5
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "gemma4-q4-k-xl-d2",
+      "requests": 4,
+      "rate_mean": 53.8887,
+      "rate_range": [
+        53.6681323278658,
+        54.384923642710746
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        49
+      ],
+      "cold_ttft": 0.2381,
+      "warm_ttft": 0.0783,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        5
+      ],
+      "draft_acceptance": 0.76
+    },
+    {
+      "model": "gemma4-q4-k-xl-d4",
+      "requests": 4,
+      "rate_mean": 53.0596,
+      "rate_range": [
+        52.98346999174793,
+        53.19951073205878
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        49
+      ],
+      "cold_ttft": 0.2377,
+      "warm_ttft": 0.0697,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        5
+      ],
+      "draft_acceptance": 0.6319444444444444
+    },
+    {
+      "model": "nemotron35-iq2-m-d0",
+      "requests": 4,
+      "rate_mean": 39.7143,
+      "rate_range": [
+        39.68998062378898,
+        39.73074443214286
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        52
+      ],
+      "cold_ttft": 0.3693,
+      "warm_ttft": 0.0542,
+      "warm_cache_n": [
+        48
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "nemotron35-iq2-m-d2",
+      "requests": 4,
+      "rate_mean": 46.846,
+      "rate_range": [
+        46.21327681971145,
+        47.203999330966944
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        52
+      ],
+      "cold_ttft": 0.3429,
+      "warm_ttft": 0.0577,
+      "warm_cache_n": [
+        48
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.8041237113402062
+    },
+    {
+      "model": "nemotron35-iq2-m-d4",
+      "requests": 4,
+      "rate_mean": 47.5805,
+      "rate_range": [
+        46.83673194674479,
+        48.302325395651195
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        52
+      ],
+      "cold_ttft": 0.3487,
+      "warm_ttft": 0.0602,
+      "warm_cache_n": [
+        48
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.7083333333333334
+    },
+    {
+      "model": "nemotron35-q3-k-xl-d0",
+      "requests": 4,
+      "rate_mean": 38.4405,
+      "rate_range": [
+        38.31052399143775,
+        38.51317317311854
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        52
+      ],
+      "cold_ttft": 0.3248,
+      "warm_ttft": 0.0546,
+      "warm_cache_n": [
+        48
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "nemotron35-q3-k-xl-d2",
+      "requests": 4,
+      "rate_mean": 45.8059,
+      "rate_range": [
+        45.559148869003096,
+        46.026349541494206
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        52
+      ],
+      "cold_ttft": 0.3384,
+      "warm_ttft": 0.0594,
+      "warm_cache_n": [
+        48
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.7450980392156863
+    },
+    {
+      "model": "nemotron35-q3-k-xl-d4",
+      "requests": 4,
+      "rate_mean": 44.0864,
+      "rate_range": [
+        43.762484799428265,
+        44.20218706852836
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        52
+      ],
+      "cold_ttft": 0.3493,
+      "warm_ttft": 0.0605,
+      "warm_cache_n": [
+        48
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.6363636363636364
+    },
+    {
+      "model": "nemotron35-q4-k-m-d0",
+      "requests": 4,
+      "rate_mean": 35.7737,
+      "rate_range": [
+        35.42590727282718,
+        35.96579341531457
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        52
+      ],
+      "cold_ttft": 0.3767,
+      "warm_ttft": 0.065,
+      "warm_cache_n": [
+        48
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "qwen3.8-27b",
+      "requests": 2,
+      "rate_mean": 14.4615,
+      "rate_range": [
+        14.290207101107717,
+        14.632880612746689
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 1.7624,
+      "warm_ttft": 0.22,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.7230769230769231
+    },
+    {
+      "model": "qwen36-iq4-xs-d0",
+      "requests": 4,
+      "rate_mean": 39.2622,
+      "rate_range": [
+        39.20617074256487,
+        39.294967830725945
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2643,
+      "warm_ttft": 0.0528,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "qwen36-iq4-xs-d2",
+      "requests": 4,
+      "rate_mean": 54.6026,
+      "rate_range": [
+        53.94854498225433,
+        55.51169985566958
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2834,
+      "warm_ttft": 0.0566,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.8901098901098901
+    },
+    {
+      "model": "qwen36-iq4-xs-d4",
+      "requests": 4,
+      "rate_mean": 57.1409,
+      "rate_range": [
+        56.911957202208185,
+        57.36148894165343
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2834,
+      "warm_ttft": 0.0529,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.7421875
+    },
+    {
+      "model": "qwen36-q2-k-xl-d0",
+      "requests": 4,
+      "rate_mean": 43.0463,
+      "rate_range": [
+        42.95631444292763,
+        43.21849125267946
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2996,
+      "warm_ttft": 0.0548,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "qwen36-q2-k-xl-d2",
+      "requests": 4,
+      "rate_mean": 46.8669,
+      "rate_range": [
+        46.325950849260465,
+        47.8688739620087
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.3405,
+      "warm_ttft": 0.0565,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.7281553398058253
+    },
+    {
+      "model": "qwen36-q2-k-xl-d4",
+      "requests": 4,
+      "rate_mean": 50.4895,
+      "rate_range": [
+        50.367863875097214,
+        50.60043189659981
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2883,
+      "warm_ttft": 0.0559,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.625
+    },
+    {
+      "model": "qwen36-q3-k-xl-d0",
+      "requests": 4,
+      "rate_mean": 39.6558,
+      "rate_range": [
+        39.598243085195776,
+        39.7084213745117
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2602,
+      "warm_ttft": 0.0523,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "qwen36-q3-k-xl-d2",
+      "requests": 4,
+      "rate_mean": 56.2489,
+      "rate_range": [
+        55.14778520849554,
+        57.32143695364095
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2955,
+      "warm_ttft": 0.0544,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.9157303370786517
+    },
+    {
+      "model": "qwen36-q3-k-xl-d4",
+      "requests": 4,
+      "rate_mean": 58.2687,
+      "rate_range": [
+        57.41869941672549,
+        59.347929808689386
+      ],
+      "actual_output_tokens": [
+        128
+      ],
+      "input_tokens": [
+        48
+      ],
+      "cold_ttft": 0.2785,
+      "warm_ttft": 0.0521,
+      "warm_cache_n": [
+        44
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.7620967741935484
+    }
+  ],
+  "contexts": [
+    {
+      "model": "gemma4-q4-k-xl-d0",
+      "target_input": 8192,
+      "requests": 4,
+      "input_tokens": [
+        8193
+      ],
+      "rate_mean": 32.4242,
+      "cold_ttft": 23.3894,
+      "warm_ttft": 0.0452,
+      "warm_cache_n": [
+        8192
+      ],
+      "warm_prompt_n": [
+        1
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "gemma4-q4-k-xl-d0",
+      "target_input": 20480,
+      "requests": 4,
+      "input_tokens": [
+        20493
+      ],
+      "rate_mean": 24.639,
+      "cold_ttft": 87.7938,
+      "warm_ttft": 0.0669,
+      "warm_cache_n": [
+        20492
+      ],
+      "warm_prompt_n": [
+        1
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "gemma4-q4-k-xl-d2",
+      "target_input": 8192,
+      "requests": 4,
+      "input_tokens": [
+        8193
+      ],
+      "rate_mean": 33.9147,
+      "cold_ttft": 23.4454,
+      "warm_ttft": 0.044,
+      "warm_cache_n": [
+        8192
+      ],
+      "warm_prompt_n": [
+        1
+      ],
+      "draft_acceptance": 0.6822429906542056
+    },
+    {
+      "model": "gemma4-q4-k-xl-d2",
+      "target_input": 20480,
+      "requests": 4,
+      "input_tokens": [
+        20493
+      ],
+      "rate_mean": 25.1349,
+      "cold_ttft": 88.7808,
+      "warm_ttft": 0.0569,
+      "warm_cache_n": [
+        20492
+      ],
+      "warm_prompt_n": [
+        1
+      ],
+      "draft_acceptance": 0.7303921568627451
+    },
+    {
+      "model": "nemotron35-iq2-m-d0",
+      "target_input": 8192,
+      "requests": 4,
+      "input_tokens": [
+        8196
+      ],
+      "rate_mean": 36.0032,
+      "cold_ttft": 17.7183,
+      "warm_ttft": 0.071,
+      "warm_cache_n": [
+        8192
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "nemotron35-iq2-m-d0",
+      "target_input": 20480,
+      "requests": 4,
+      "input_tokens": [
+        20496
+      ],
+      "rate_mean": 32.4013,
+      "cold_ttft": 48.9336,
+      "warm_ttft": 0.0923,
+      "warm_cache_n": [
+        20492
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "nemotron35-iq2-m-d4",
+      "target_input": 8192,
+      "requests": 4,
+      "input_tokens": [
+        8196
+      ],
+      "rate_mean": 30.5139,
+      "cold_ttft": 18.4505,
+      "warm_ttft": 0.0744,
+      "warm_cache_n": [
+        8192
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.4797687861271676
+    },
+    {
+      "model": "nemotron35-iq2-m-d4",
+      "target_input": 20480,
+      "requests": 4,
+      "input_tokens": [
+        20496
+      ],
+      "rate_mean": 23.3976,
+      "cold_ttft": 51.5079,
+      "warm_ttft": 0.0909,
+      "warm_cache_n": [
+        20492
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.41361256544502617
+    },
+    {
+      "model": "qwen36-q3-k-xl-d0",
+      "target_input": 8192,
+      "requests": 4,
+      "input_tokens": [
+        8221
+      ],
+      "rate_mean": 25.1149,
+      "cold_ttft": 17.4125,
+      "warm_ttft": 0.0839,
+      "warm_cache_n": [
+        8217
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "qwen36-q3-k-xl-d0",
+      "target_input": 20480,
+      "requests": 4,
+      "input_tokens": [
+        20491
+      ],
+      "rate_mean": 16.8618,
+      "cold_ttft": 50.7624,
+      "warm_ttft": 0.1208,
+      "warm_cache_n": [
+        20487
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": null
+    },
+    {
+      "model": "qwen36-q3-k-xl-d4",
+      "target_input": 8192,
+      "requests": 4,
+      "input_tokens": [
+        8221
+      ],
+      "rate_mean": 33.3136,
+      "cold_ttft": 18.2368,
+      "warm_ttft": 0.0823,
+      "warm_cache_n": [
+        8217
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.6851851851851852
+    },
+    {
+      "model": "qwen36-q3-k-xl-d4",
+      "target_input": 20480,
+      "requests": 4,
+      "input_tokens": [
+        20491
+      ],
+      "rate_mean": 22.6703,
+      "cold_ttft": 54.4477,
+      "warm_ttft": 0.1236,
+      "warm_cache_n": [
+        20487
+      ],
+      "warm_prompt_n": [
+        4
+      ],
+      "draft_acceptance": 0.746031746031746
+    }
+  ],
+  "pi": [
+    {
+      "model": "qwen36-q3-k-xl-d4",
+      "seconds": 13.096591333000106,
+      "exit": 0,
+      "autoload_request_seconds": 26.73214474999986,
+      "pass": true,
+      "tool_calls": [
+        "write"
+      ],
+      "assistant_turns": 2,
+      "total_generated_tokens": 370,
+      "total_uncached_input_tokens": 1830,
+      "total_cache_read_tokens": 2061,
+      "generated_sha256": "756d74f289950491398909a4e668ce9cfbe759fb179a20fe77e1f465e9fe9dff",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-working-node/0-qwen36-q3-k-xl-d4"
+    },
+    {
+      "model": "gemma4-q4-k-xl-d2",
+      "seconds": 31.821074291001423,
+      "exit": 0,
+      "autoload_request_seconds": 23.256986082997173,
+      "pass": true,
+      "tool_calls": [
+        "write"
+      ],
+      "assistant_turns": 2,
+      "total_generated_tokens": 1267,
+      "total_uncached_input_tokens": 1846,
+      "total_cache_read_tokens": 2642,
+      "generated_sha256": "0c873c04bc2a29f54f6d383b96665597cbaf6536253b8233d6353586e70326f9",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-rest/0-gemma4-q4-k-xl-d2"
+    },
+    {
+      "model": "nemotron35-iq2-m-d4",
+      "seconds": 23.491062916000374,
+      "exit": 0,
+      "autoload_request_seconds": 28.222327749994292,
+      "pass": true,
+      "tool_calls": [
+        "write"
+      ],
+      "assistant_turns": 2,
+      "total_generated_tokens": 841,
+      "total_uncached_input_tokens": 1907,
+      "total_cache_read_tokens": 2644,
+      "generated_sha256": "986044fb0004e2374a33128cbdd32462e2bcc214253db0bda07f6d42c25f848a",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-rest/0-nemotron35-iq2-m-d4"
+    },
+    {
+      "model": "nemotron35-q3-k-xl-d2",
+      "seconds": 28.102478499997233,
+      "exit": 0,
+      "autoload_request_seconds": 32.35522391700215,
+      "pass": true,
+      "tool_calls": [
+        "write",
+        "edit",
+        "read"
+      ],
+      "assistant_turns": 4,
+      "total_generated_tokens": 1001,
+      "total_uncached_input_tokens": 2431,
+      "total_cache_read_tokens": 7111,
+      "generated_sha256": "f95069ea49e81781de9db282286c03602ee38628109d6899d7a1eb8026a9037f",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-rest/0-nemotron35-q3-k-xl-d2"
+    },
+    {
+      "model": "nemotron35-q4-k-m-d0",
+      "seconds": 40.792989875000785,
+      "exit": 0,
+      "autoload_request_seconds": 55.21034558300016,
+      "pass": true,
+      "tool_calls": [
+        "write"
+      ],
+      "assistant_turns": 2,
+      "total_generated_tokens": 1193,
+      "total_uncached_input_tokens": 1866,
+      "total_cache_read_tokens": 2910,
+      "generated_sha256": "74428a6245b9a74884e0e365981a5a9b779af30df278b5699bcdce05aa7a139c",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-rest/0-nemotron35-q4-k-m-d0"
+    },
+    {
+      "model": "qwen36-iq4-xs-d4",
+      "seconds": 11.914261541998712,
+      "exit": 0,
+      "autoload_request_seconds": 28.142441999996663,
+      "pass": true,
+      "tool_calls": [
+        "write"
+      ],
+      "assistant_turns": 2,
+      "total_generated_tokens": 391,
+      "total_uncached_input_tokens": 1830,
+      "total_cache_read_tokens": 2066,
+      "generated_sha256": "83bc404a81aa970233e0daa426f1f9d6861a6674a5a973bf8950f135532c33f9",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-rest/0-qwen36-iq4-xs-d4"
+    },
+    {
+      "model": "qwen36-q2-k-xl-d4",
+      "seconds": 15.809278875000018,
+      "exit": 0,
+      "autoload_request_seconds": 20.410878834001778,
+      "pass": true,
+      "tool_calls": [
+        "write"
+      ],
+      "assistant_turns": 2,
+      "total_generated_tokens": 568,
+      "total_uncached_input_tokens": 1837,
+      "total_cache_read_tokens": 2244,
+      "generated_sha256": "991497ba67e8db63da2369f9a3770188e2bb51f852b98190378347298b64a64b",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-rest/0-qwen36-q2-k-xl-d4"
+    },
+    {
+      "model": "nemotron35-iq2-m-d0",
+      "seconds": 17.399931332998676,
+      "exit": 0,
+      "autoload_request_seconds": 27.94373524999537,
+      "pass": true,
+      "tool_calls": [
+        "write"
+      ],
+      "assistant_turns": 2,
+      "total_generated_tokens": 470,
+      "total_uncached_input_tokens": 1864,
+      "total_cache_read_tokens": 2272,
+      "generated_sha256": "916be9b04273d84d739f2028e4e823911626d8e5be8e7451a3b1fb63df89c7be",
+      "external_repairs": 0,
+      "evidence": "results/moe-pi-nemotron-long-choice/0-nemotron35-iq2-m-d0"
+    }
+  ],
+  "memory": [
+    {
+      "model": "gemma4-q4-k-xl-d0",
+      "sampled_peak_group_rss_gib": 18.005126953125,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "gemma4-q4-k-xl-d2",
+      "sampled_peak_group_rss_gib": 18.04034423828125,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "gemma4-q4-k-xl-d4",
+      "sampled_peak_group_rss_gib": 17.96759033203125,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "nemotron35-iq2-m-d0",
+      "sampled_peak_group_rss_gib": 18.641326904296875,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "nemotron35-iq2-m-d2",
+      "sampled_peak_group_rss_gib": 19.6220703125,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "nemotron35-iq2-m-d4",
+      "sampled_peak_group_rss_gib": 19.976654052734375,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "nemotron35-q3-k-xl-d0",
+      "sampled_peak_group_rss_gib": 20.14764404296875,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "nemotron35-q3-k-xl-d2",
+      "sampled_peak_group_rss_gib": 21.2955322265625,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "nemotron35-q3-k-xl-d4",
+      "sampled_peak_group_rss_gib": 21.391754150390625,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "nemotron35-q4-k-m-d0",
+      "sampled_peak_group_rss_gib": 23.763336181640625,
+      "max_case_swap_growth_gib": 0.113525390625
+    },
+    {
+      "model": "nemotron35-q4-k-m-d2",
+      "sampled_peak_group_rss_gib": 23.799392700195312,
+      "max_case_swap_growth_gib": 0.44775390625
+    },
+    {
+      "model": "nemotron35-q4-k-m-d4",
+      "sampled_peak_group_rss_gib": 24.834869384765625,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen3.8-27b",
+      "sampled_peak_group_rss_gib": 21.0029296875,
+      "max_case_swap_growth_gib": 0.6044335937500005
+    },
+    {
+      "model": "qwen36-iq4-xs-d0",
+      "sampled_peak_group_rss_gib": 20.62738037109375,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-iq4-xs-d2",
+      "sampled_peak_group_rss_gib": 21.025909423828125,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-iq4-xs-d4",
+      "sampled_peak_group_rss_gib": 20.9207763671875,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-q2-k-xl-d0",
+      "sampled_peak_group_rss_gib": 15.4739990234375,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-q2-k-xl-d2",
+      "sampled_peak_group_rss_gib": 16.268875122070312,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-q2-k-xl-d4",
+      "sampled_peak_group_rss_gib": 16.243820190429688,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-q3-k-xl-d0",
+      "sampled_peak_group_rss_gib": 19.934280395507812,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-q3-k-xl-d2",
+      "sampled_peak_group_rss_gib": 20.438079833984375,
+      "max_case_swap_growth_gib": 0.0
+    },
+    {
+      "model": "qwen36-q3-k-xl-d4",
+      "sampled_peak_group_rss_gib": 20.477264404296875,
+      "max_case_swap_growth_gib": 0.0
+    }
+  ],
+  "failures": [
+    {
+      "model": "nemotron35-q4-k-m-d2",
+      "error": "{'code': 500, 'message': 'Compute error.', 'type': 'server_error'}",
+      "evidence": "results/moe-screen-rest/0-nemotron35-q4-k-m-d2",
+      "cause": "Native Metal command-buffer out-of-memory, no fallback"
+    },
+    {
+      "model": "nemotron35-q4-k-m-d4",
+      "error": "{'code': 500, 'message': 'Compute error.', 'type': 'server_error'}",
+      "evidence": "results/moe-screen-rest/0-nemotron35-q4-k-m-d4",
+      "cause": "Native Metal command-buffer out-of-memory, no fallback"
+    },
+    {
+      "model": "nemotron35-q4-k-m-d4",
+      "error": "{'code': 500, 'message': 'Compute error.', 'type': 'server_error'}",
+      "evidence": "results/moe-screen-rest/1-nemotron35-q4-k-m-d4",
+      "cause": "Native Metal command-buffer out-of-memory, no fallback"
+    },
+    {
+      "model": "nemotron35-q4-k-m-d2",
+      "error": "{'code': 500, 'message': 'Compute error.', 'type': 'server_error'}",
+      "evidence": "results/moe-screen-rest/1-nemotron35-q4-k-m-d2",
+      "cause": "Native Metal command-buffer out-of-memory, no fallback"
+    }
+  ]
+}

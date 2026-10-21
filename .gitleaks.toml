@@ -1,0 +1,27 @@
+# gitleaks configuration installed by the /setup-gitleaks skill.
+# Extends the shipped default ruleset with generic PII rules. No personal data
+# belongs in the committed file; if personalization is accepted, confirmed
+# literals go only into a gitignored local section (see the skill reference).
+[extend]
+useDefault = true
+
+[[rules]]
+id = "home-dir-path"
+description = "Absolute home-directory path (macOS, Linux, Windows profile)"
+regex = '''(?i)(?:^|[\s"'(=:\[{,])(?:(?:/Users/|/home/)[A-Za-z0-9._-]+/[A-Za-z0-9._~/+-]*|[A-Za-z]:\\Users\\[A-Za-z0-9._-]+\\)'''
+
+[[rules]]
+id = "unc-share-path"
+description = "Windows UNC network share path"
+regex = '''(?i)\\\\[A-Za-z0-9._-]+\\[A-Za-z0-9._$-]+'''
+
+[[rules]]
+id = "consumer-email"
+description = "Consumer-domain email address"
+regex = '''(?i)[A-Za-z0-9._%+-]+@(?:gmail|icloud|outlook|hotmail|protonmail|fastmail)\.(com|net|me|ch|co\.uk)'''
+
+[[allowlists]]
+description = "Noreply identities are not personal leaks"
+regexes = [
+  '''(?i)[A-Za-z0-9._%+-]+@users\.noreply\.github\.com''',
+]
